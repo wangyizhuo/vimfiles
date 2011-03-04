@@ -114,8 +114,8 @@ if has("gui_running")
   set guioptions-=T
   set t_Co=256
   " Maximize gvim window
-  set columns=999
-  set lines=50
+  set columns=120
+  set lines=30
   " Setup fonts in different OS
   if has("gui_win32")
     set guifont=Consolas:h11:cANSI
@@ -190,6 +190,6 @@ endfunction
 " Configuration for different languages
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au FileType python setl sw=2 sts=2 et
-au FileType javascript setl sw=2 sts=2 et
-au FileType html setl sw=2 sts=2 et
 au FileType ruby setl sw=2 sts=2 et
+au FileType javascript setl sw=4 sts=4 et
+au FileType html setl sw=4 sts=4 et
