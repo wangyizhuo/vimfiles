@@ -2,6 +2,11 @@
 " => Setup pathogen
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype off 
+" setup exuberant ctags for windows
+if has("win32")
+    let Tlist_Ctags_Cmd='D:/My\ Dropbox/vim/win/ctags58/ctags.exe'
+endif
+
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -14,9 +19,13 @@ set history=700
 " Sets vim not vi compatible
 set nocompatible
 
+" Set encoding to utf8
+set encoding=utf-8
+
 " Enable filetype plugin
-filetype plugin off
-filetype indent off
+filetype on
+filetype plugin on
+filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -26,6 +35,9 @@ set autoread
 let mapleader = ","
 let g:mapleader = ","
 
+" Easier non-interactive command insertion
+nnoremap <Space> :
+
 " Fast saving
 nmap <leader>w :w!<cr>
 
@@ -34,6 +46,22 @@ map <leader>e :e! ~/.vim_runtime/vimrc<cr>
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
+
+" Always show line number
+set number
+
+" Disable backup and swapfile
+set nobackup
+set noswapfile
+
+" Switch to paste mode when F2 is pressed
+set pastetoggle=<F2>
+
+" Use ; instead of :
+nnoremap ; :
+
+" Use w!! to reopen the file in sudo mode
+cmap w!! w !sudo tee % >/dev/null
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -95,7 +123,6 @@ if has("gui_running")
 endif
 
 set background=dark
-set nonu
 
 " Use railscasets when there is 256 color support, otherwise use fallback
 if &t_Co == 256
@@ -160,22 +187,9 @@ function! VisualSearch(direction) range
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Parenthesis/bracket expanding
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-vnoremap $1 <esc>`>a)<esc>`<i(<esc>
-vnoremap $2 <esc>`>a]<esc>`<i[<esc>
-vnoremap $3 <esc>`>a}<esc>`<i{<esc>
-vnoremap $$ <esc>`>a"<esc>`<i"<esc>
-vnoremap $q <esc>`>a'<esc>`<i'<esc>
-vnoremap $e <esc>`>a"<esc>`<i"<esc>
-
-" Map auto complete of (, ", ', [
-inoremap $1 ()<esc>i
-inoremap $2 []<esc>i
-inoremap $3 {}<esc>i
-inoremap $4 {<esc>o}<esc>O
-inoremap $q ''<esc>i
-inoremap $e ""<esc>i
-inoremap $t <><esc>i
-
+" Configuration for different languages
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au FileType python setl sw=2 sts=2 et
+au FileType javascript setl sw=2 sts=2 et
+au FileType ruby setl sw=2 sts=2 et
 
