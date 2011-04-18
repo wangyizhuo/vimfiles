@@ -1,5 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/wyz/Dropbox/vim/bundle/fuzzyfinder/autoload/fuf'
-let g:netrw_dirhist_2='/home/wyz/Dropbox/vim/bundle/fuzzyfinder/ruby'
-let g:netrw_dirhist_3='/home/wyz/development/java/play-1.1.1/framework/src/play'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/home/wyz/development/projects/arkisto/conf'
+let g:netrw_dirhist_2='/home/wyz/development/projects/rbac-people/conf'
