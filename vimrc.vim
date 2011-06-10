@@ -21,6 +21,8 @@ set nocompatible
 
 " Set encoding to utf8
 set encoding=utf-8
+set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,cp936
+set termencoding=utf-8
 
 " Enable filetype plugin
 filetype on
